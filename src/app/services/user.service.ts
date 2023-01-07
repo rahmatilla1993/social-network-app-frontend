@@ -12,7 +12,7 @@ export class UserService {
 
   constructor(private http :  HttpClient) { }
 
-  getCurrentUser() : Observable<User> {
+  getCurrentUser() : Observable<any> {
     // @ts-ignore
     return this.http.get(this.USER_API)
   }

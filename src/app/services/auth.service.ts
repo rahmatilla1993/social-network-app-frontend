@@ -12,21 +12,11 @@ export class AuthService {
 
   constructor(private http : HttpClient) { }
 
-  public login(user : User) : Observable<any> {
-    return this.http.post(`${this.AUTH_API}/signin`, {
-      email : user.email,
-      password : user.password
-    })
+  public login(user : any) : Observable<any> {
+    return this.http.post(`${this.AUTH_API}/signin`, { ...user })
   }
 
-  public register(user : User) : Observable<any> {
-    return this.http.post(`${this.AUTH_API}/signup`,{
-      email : user.email,
-      username : user.username,
-      firstName : user.firstName,
-      lastName : user.lastName,
-      password : user.password,
-      confirmPassword : user.confirmPassword,
-    })
+  public register(user : any) : Observable<any> {
+    return this.http.post(`${this.AUTH_API}/signup`,{ ...user })
   }
 }

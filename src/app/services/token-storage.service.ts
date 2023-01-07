@@ -20,12 +20,12 @@ export class TokenStorageService {
     return sessionStorage.getItem(this.TOKEN_KEY)
   }
 
-  public saveUser(user : User) : void {
+  public saveUser(user : any) : void {
     window.sessionStorage.removeItem(this.USER_KEY)
     window.sessionStorage.setItem(this.USER_KEY, JSON.stringify(user))
   }
 
-  public getUser() : User {
+  public getUser() : any {
     // @ts-ignore
     return JSON.parse(sessionStorage.getItem(this.USER_KEY))
   }
