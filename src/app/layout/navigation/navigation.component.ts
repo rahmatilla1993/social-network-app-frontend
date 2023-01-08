@@ -26,7 +26,6 @@ export class NavigationComponent implements OnInit{
     if(this.isLoggedIn) {
       this.userService.getCurrentUser()
         .subscribe(data => {
-          console.log(data)
           this.user = data
           this.isDataLoaded = true
         })
@@ -35,8 +34,7 @@ export class NavigationComponent implements OnInit{
 
   logout() : void {
     this.tokenService.logout()
-    this.router.navigate(['/'])
-
+    this.router.navigate(['/login'])
   }
 
 

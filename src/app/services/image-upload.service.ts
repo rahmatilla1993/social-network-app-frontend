@@ -7,7 +7,8 @@ import {Observable} from "rxjs";
 })
 export class ImageUploadService {
 
-  private IMAGE_API = 'https://spring-boot-social-network.herokuapp.com/api/image'
+  // private IMAGE_API = 'https://spring-boot-social-network.herokuapp.com/api/image'
+  private IMAGE_API = 'http://localhost:8080/api/image'
 
   constructor(private http: HttpClient) { }
 
@@ -28,7 +29,7 @@ export class ImageUploadService {
     return this.http.get(`${this.IMAGE_API}/profileImage`)
   }
 
-  getImageToPost(postId : number) : Observable<any> {
+  getImageToPost(postId: number | any) : Observable<any> {
     return this.http.get(`${this.IMAGE_API}/${postId}/image`)
   }
 }

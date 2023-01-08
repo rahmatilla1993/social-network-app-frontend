@@ -9,7 +9,8 @@ import * as https from "https";
 })
 export class PostService {
 
-  private POST_API = 'https://spring-boot-social-network.herokuapp.com/api/post'
+  // private POST_API = 'https://spring-boot-social-network.herokuapp.com/api/post'
+  private POST_API = 'http://localhost:8080/api/post'
 
   constructor(private http : HttpClient) { }
 

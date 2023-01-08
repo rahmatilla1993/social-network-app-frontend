@@ -8,22 +8,20 @@ import {Observable} from "rxjs";
 })
 export class UserService {
 
-  private USER_API = 'https://spring-boot-social-network.herokuapp.com/api/user'
+  // private USER_API = 'https://spring-boot-social-network.herokuapp.com/api/user'
+  private USER_API = 'http://localhost:8080/api/user'
 
   constructor(private http :  HttpClient) { }
 
   getCurrentUser() : Observable<any> {
-    // @ts-ignore
-    return this.http.get(this.USER_API)
+    return this.http.get(`${this.USER_API}/`)
   }
 
-  getUserById(userId : string) : Observable<User> {
-    // @ts-ignore
+  getUserById(userId : string) : Observable<any> {
     return this.http.get(`${this.USER_API}/${userId}`)
   }
 
-  updateUserProfile(user : User) : Observable<User> {
-    // @ts-ignore
+  updateUserProfile(user : User) : Observable<any> {
     return this.http.put(`${this.USER_API}/update`,user)
   }
 }

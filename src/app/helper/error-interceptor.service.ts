@@ -20,14 +20,12 @@ class ErrorInterceptorService implements HttpInterceptor{
       .pipe(catchError(
         //@ts-ignore
         err => {
-
+          console.log(err)
         if(err.status === 401) {
           this.tokenService.logout()
-
+        }
           const error = err.error.username + ' or ' + err.error.password
           this.notificationService.showSnackBar(error)
-          return throwError(error)
-        }
       }))
   }
 }

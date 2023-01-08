@@ -14,6 +14,7 @@ import {AppRoutingModule} from "./app-routing.module";
 import { NavigationComponent } from './layout/navigation/navigation.component';
 import {MatTooltipModule} from "@angular/material/tooltip";
 import { IndexComponent } from './layout/index/index.component';
+import { PageNotFoundComponent } from './layout/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { IndexComponent } from './layout/index/index.component';
     RegisterComponent,
     NavigationComponent,
     IndexComponent,
+    PageNotFoundComponent,
   ],
     imports: [
         BrowserModule,
