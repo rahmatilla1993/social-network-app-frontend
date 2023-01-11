@@ -40,14 +40,14 @@ export class RegisterComponent {
   }
 
   onSubmit() : void {
-    console.log(this.registerForm.value)
     this.authService
       .register({ ...this.registerForm.value })
-      .subscribe(data => {
-        console.log(data.message)
-        this.notificationService.showSnackBar(data.message)
-        this.router.navigate(['/'])
-        window.location.reload()
+      .subscribe({
+        next : data => {
+          this.notificationService.showSnackBar(data.message)
+          this.router.navigate(['/'])
+          window.location.reload()
+        }
       })
   }
 }
