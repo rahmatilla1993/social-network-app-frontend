@@ -18,3 +18,7 @@
 .not-liked {
   color: grey;
 }
+
+.myDiv {
+  margin : 0 auto;
+}

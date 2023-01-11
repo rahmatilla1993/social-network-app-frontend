@@ -12,26 +12,28 @@ import {ImageUploadService} from "../../services/image-upload.service";
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css']
 })
-export class IndexComponent implements OnInit{
+export class IndexComponent implements OnInit {
 
-  isPostsLoaded : boolean
-  isUserDataLoaded : boolean
-  posts : Post[]
-  user : User
+  isPostsLoaded: boolean
+  isUserDataLoaded: boolean
+  posts: Post[]
+  user: User
 
   constructor(
-    private userService : UserService,
-    private postService : PostService,
-    private commentService : CommentService,
-    private notificationService : NotificationService,
-    private imageService : ImageUploadService
+    private userService: UserService,
+    private postService: PostService,
+    private commentService: CommentService,
+    private notificationService: NotificationService,
+    private imageService: ImageUploadService
   ) {
     this.isPostsLoaded = false
     this.isUserDataLoaded = false
     this.posts = []
-    this.user = {bio: "", confirmPassword: "",
-                  email: "", firstName: "", lastName: "",
-                  password: "", username: ""}
+    this.user = {
+      bio: "", confirmPassword: "",
+      email: "", firstName: "", lastName: "",
+      password: "", username: ""
+    }
   }
 
   ngOnInit(): void {
@@ -50,7 +52,7 @@ export class IndexComponent implements OnInit{
       })
   }
 
-  getImagesToPosts(posts : Post[]) : void {
+  getImagesToPosts(posts: Post[]): void {
     posts.forEach(post => {
       this.imageService.getImageToPost(post.id)
         .subscribe(image => {
@@ -59,7 +61,7 @@ export class IndexComponent implements OnInit{
     })
   }
 
-  getCommentsToPosts(post : Post[]) : void {
+  getCommentsToPosts(post: Post[]): void {
     post.forEach(post => {
       this.commentService.getAllCommentsForPost(post.id)
         .subscribe(comment => {
@@ -68,39 +70,38 @@ export class IndexComponent implements OnInit{
     })
   }
 
-  likePost(postId : number | any, postIndex : number | any) : void {
+  likePost(postId: number | any, postIndex: number | any): void {
     const post = this.posts[postIndex]
     const {username} = this.user
-    if(!post.usersLiked?.includes(username)) {
+    if (!post.usersLiked?.includes(username)) {
       this.postService.likePost(postId, username)
         .subscribe(() => {
           post.usersLiked?.push(username)
           this.notificationService.showSnackBar('Like post')
         })
-    }
-    else
+    } else
       this.postService.likePost(postId, username)
         .subscribe(() => {
-          const index : number | any = post.usersLiked?.indexOf(username, 0)
-          if(index > -1) {
+          const index: number | any = post.usersLiked?.indexOf(username, 0)
+          if (index > -1) {
             post.usersLiked?.splice(index, 1)
           }
         })
   }
 
-  postComment(event: any, postId : number | any, postIndex : number) : void {
+  postComment(event: any, postId: number | any, postIndex: number): void {
     const post = this.posts[postIndex]
     const message = event.target.value
     event.target.value = ''
     this.commentService.saveComment(postId, {
       message,
-      'username' : this.user.username
+      'username': this.user.username
     }).subscribe(data => {
       post.comments?.push(data)
     })
   }
 
-  formatImage(image : any) : any {
+  formatImage(image: any): any {
     return image ? `data:image/jpeg;base64,${image}` : null
   }
 }

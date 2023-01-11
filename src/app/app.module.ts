@@ -14,7 +14,10 @@ import {AppRoutingModule} from "./app-routing.module";
 import { NavigationComponent } from './layout/navigation/navigation.component';
 import {MatTooltipModule} from "@angular/material/tooltip";
 import { IndexComponent } from './layout/index/index.component';
-import { PageNotFoundComponent } from './layout/page-not-found/page-not-found.component';
+import { ProfileComponent } from './user/profile/profile.component';
+import { UserPostsComponent } from './user/user-posts/user-posts.component';
+import { EditUserComponent } from './user/edit-user/edit-user.component';
+import { AddPostComponent } from './user/add-post/add-post.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { PageNotFoundComponent } from './layout/page-not-found/page-not-found.co
     RegisterComponent,
     NavigationComponent,
     IndexComponent,
-    PageNotFoundComponent,
+    ProfileComponent,
+    UserPostsComponent,
+    EditUserComponent,
+    AddPostComponent,
   ],
     imports: [
         BrowserModule,

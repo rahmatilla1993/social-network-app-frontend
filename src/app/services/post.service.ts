@@ -34,7 +34,7 @@ export class PostService {
     return this.http.post(`${this.POST_API}/${postId}/${username}/like`)
   }
 
-  deletePost(postId : number) : Observable<any> {
+  deletePost(postId : any) : Observable<any> {
     // @ts-ignore
     return this.http.delete(`${this.POST_API}/${postId}/delete`)
   }
