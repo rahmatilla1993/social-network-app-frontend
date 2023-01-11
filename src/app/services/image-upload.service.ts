@@ -8,8 +8,8 @@ import {Post} from "../models/Post";
 })
 export class ImageUploadService {
 
-  // private IMAGE_API = 'https://spring-boot-social-network.herokuapp.com/api/image'
-  private IMAGE_API = 'http://localhost:8080/api/image'
+  private IMAGE_API = 'https://spring-boot-social-network.herokuapp.com/api/image'
+  // private IMAGE_API = 'http://localhost:8080/api/image'
 
   constructor(private http: HttpClient) { }
 

@@ -8,8 +8,8 @@ import {Observable} from "rxjs";
 })
 export class CommentService {
 
-  // private COMMENT_API : string = 'https://spring-boot-social-network.herokuapp.com/api/comment'
-  private COMMENT_API : string = 'http://localhost:8080/api/comment'
+  private COMMENT_API : string = 'https://spring-boot-social-network.herokuapp.com/api/comment'
+  // private COMMENT_API : string = 'http://localhost:8080/api/comment'
 
   constructor(private http : HttpClient) { }
 

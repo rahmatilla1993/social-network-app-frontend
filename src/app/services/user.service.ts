@@ -7,8 +7,8 @@ import {Observable} from "rxjs";
 })
 export class UserService {
 
-  // private USER_API = 'https://spring-boot-social-network.herokuapp.com/api/user'
-  private USER_API = 'http://localhost:8080/api/user'
+  private USER_API = 'https://spring-boot-social-network.herokuapp.com/api/user'
+  // private USER_API = 'http://localhost:8080/api/user'
 
   constructor(private http :  HttpClient) { }
 
